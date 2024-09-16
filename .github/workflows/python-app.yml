@@ -30,22 +30,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Install pytest directly (in case it's not in requirements.txt)
-      - name: Install pytest directly
-        run: |
-          python -m pip install pytest
-
-      # Step 5: Check pytest installation
-      - name: Check pytest installation
-        run: |
-          python -m pip show pytest
-
-      # Step 6: List files to verify test files are present
-      - name: List files
-        run: |
-          ls -R
-
-      # Step 7: Run tests with verbose output
+      # Step 4: Run tests
       - name: Run tests
-        run: |
-          pytest -v
+        run: pytest
