@@ -30,6 +30,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Run tests
-      - name: Run tests
-        run: pytest
+      # Step 4: Install pytest directly (in case it's not in requirements.txt)
+      - name: Install pytest directly
+        run: |
+          python -m pip install pytest
+
+      # Step 5: Locate pytest
+      - name: Locate pytest
+        run: |
+          which pytest
+          python -m pip show pytest
+
+      # Step 6: Check pytest installation
+      - name: Check pytest installation
+        run: |
+          python -m pip show pytest
+
+      # Step 7: Set PYTHONPATH to include the src directory
+      - name: Set PYTHONPATH
+        run: |
+          export PYTHONPATH=$(pwd)/src
+          pytest -v
