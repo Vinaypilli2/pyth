@@ -40,7 +40,12 @@ jobs:
         run: |
           python -m pip show pytest
 
-      # Step 6: Run tests
+      # Step 6: List files to verify test files are present
+      - name: List files
+        run: |
+          ls -R
+
+      # Step 7: Run tests with verbose output
       - name: Run tests
         run: |
-          pytest
+          pytest -v
